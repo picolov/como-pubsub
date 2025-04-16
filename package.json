@@ -1,0 +1,27 @@
+{
+  "name": "como-pubsub",
+  "version": "0.1.0",
+  "description": "A simple publish-subscribe library for communication between components",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist",
+    "test": "bun test",
+    "publish": "npm publish",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": ["pubsub", "publish-subscribe", "messaging", "communication", "typescript"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/bun": "^1.2.9"
+  }
+}
