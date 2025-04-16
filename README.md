@@ -13,8 +13,6 @@ A lightweight, fast, and type-safe publish-subscribe library for communication b
 
 ## ✨ Features
 
-- 🔥 Blazing fast performance
-- 📦 Zero dependencies
 - 🔒 Type-safe with TypeScript
 - 🌐 Works in both Bun and Node.js
 - 🧩 Simple and intuitive API

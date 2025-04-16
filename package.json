@@ -20,6 +20,10 @@
   "keywords": ["pubsub", "publish-subscribe", "messaging", "communication", "typescript"],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@msgpack/msgpack": "^3.1.1",
+    "mqtt": "^5.10.4"
+  },
   "devDependencies": {
     "typescript": "^5.8.3",
     "@types/bun": "^1.2.9"
