@@ -60,7 +60,19 @@ jobs:
       - name: Build package
         run: bun run build
       
-      - name: Publish to npm
+      - name: Setup npm
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          npm config set registry https://registry.npmjs.org/
+      
+      - name: Publish Beta to npm
+        if: ${{ contains(github.event.release.tag_name, '-beta.') }}
+        run: npm publish --access public --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Publish Stable to npm
+        if: ${{ !contains(github.event.release.tag_name, '-beta.') }}
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
