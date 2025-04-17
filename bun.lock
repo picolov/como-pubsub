@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "linko",
+      "name": "dyno-config",
       "dependencies": {
         "@msgpack/msgpack": "^3.1.1",
         "mqtt": "^5.10.4",
