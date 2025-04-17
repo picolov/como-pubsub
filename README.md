@@ -1,8 +1,6 @@
 # Como - PubSub
 
-<div align="center">
-  <img src="como.png" alt="Como PubSub Logo" width="200" />
-</div>
+<img src="como.png" onerror="this.onerror=null; this.src='https://github.com/picolov/como-pubsub/blob/master/como.png'" alt="Como PubSub Logo" width="200" />
 
 [![npm version](https://img.shields.io/npm/v/como-pubsub.svg?style=flat-square)](https://www.npmjs.com/package/como-pubsub)
 [![npm downloads](https://img.shields.io/npm/dm/como-pubsub.svg?style=flat-square)](https://www.npmjs.com/package/como-pubsub)
