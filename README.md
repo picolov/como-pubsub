@@ -1,10 +1,10 @@
-# Dyno Config
+# Como - PubSub
 <div align="center">
-  <img src="dyno.png" onerror="this.onerror=null; this.src='https://github.com/picolov/dyno-config/blob/master/dyno.png'" alt="Dyno Config Logo" width="200" />
+  <img src="como.png" onerror="this.onerror=null; this.src='https://github.com/picolov/como-pubsub/blob/master/como.png'" alt="Como PubSub Logo" width="200" />
 </div>
 
-[![npm version](https://img.shields.io/npm/v/dyno-config.svg?style=flat-square)](https://www.npmjs.com/package/dyno-config)
-[![npm downloads](https://img.shields.io/npm/dm/dyno-config.svg?style=flat-square)](https://www.npmjs.com/package/dyno-config)
+[![npm version](https://img.shields.io/npm/v/como-pubsub.svg?style=flat-square)](https://www.npmjs.com/package/como-pubsub)
+[![npm downloads](https://img.shields.io/npm/dm/como-pubsub.svg?style=flat-square)](https://www.npmjs.com/package/como-pubsub)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Bun](https://img.shields.io/badge/Bun-1.0.0-blue?style=flat-square)](https://bun.sh)
 
@@ -21,19 +21,19 @@ A lightweight, fast, and type-safe publish-subscribe library for communication b
 
 ```bash
 # Using npm
-npm install dyno-config
+npm install como-pubsub
 
 # Using yarn
-yarn add dyno-config
+yarn add como-pubsub
 
 # Using pnpm
-pnpm add dyno-config
+pnpm add como-pubsub
 ```
 
 ## 🚀 Quick Start
 
 ```typescript
-import { emit, listen, unlisten } from 'dyno-config';
+import { emit, listen, unlisten } from 'como-pubsub';
 
 // Subscribe to a topic
 const subscriptionId = await listen('user-updates', (topic, payload) => {

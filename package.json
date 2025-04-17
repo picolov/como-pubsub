@@ -1,7 +1,7 @@
 {
-  "name": "dyno-config",
+  "name": "como-pubsub",
   "version": "0.1.0-beta.1",
-  "description": "dynamic config that can be updated in runtime",
+  "description": "A simple publish-subscribe library for communication between components",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,9 +17,13 @@
     "publish": "npm publish",
     "prepublishOnly": "bun run build"
   },
-  "keywords": ["config", "dynamic config", "runtime config", "typescript"],
+  "keywords": ["pubsub", "publish-subscribe", "messaging", "communication", "typescript"],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@msgpack/msgpack": "^3.1.1",
+    "mqtt": "^5.10.4"
+  },
   "devDependencies": {
     "typescript": "^5.8.3",
     "@types/bun": "^1.2.9"
