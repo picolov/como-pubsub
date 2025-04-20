@@ -1,10 +1,15 @@
 {
   "name": "como-pubsub",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "A simple publish-subscribe library for communication between components",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/picolov/como-pubsub",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picolov/como-pubsub.git"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -17,7 +22,7 @@
     "prepublishOnly": "bun run build"
   },
   "keywords": ["pubsub", "publish-subscribe", "messaging", "communication", "typescript"],
-  "author": "",
+  "author": "picolov",
   "license": "MIT",
   "dependencies": {
     "@msgpack/msgpack": "^3.1.1",

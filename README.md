@@ -1,6 +1,6 @@
 # Como - PubSub
 <div align="center">
-  <img src="como.png" onerror="this.onerror=null; this.src='https://github.com/picolov/como-pubsub/blob/master/como.png'" alt="Como PubSub Logo" width="200" />
+  <img src="https://github.com/picolov/como-pubsub/blob/master/como.png" alt="Como PubSub Logo" width="200" />
 </div>
 
 [![npm version](https://img.shields.io/npm/v/como-pubsub.svg?style=flat-square)](https://www.npmjs.com/package/como-pubsub)
@@ -8,7 +8,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Bun](https://img.shields.io/badge/Bun-1.0.0-blue?style=flat-square)](https://bun.sh)
 
-A lightweight, fast, and type-safe publish-subscribe library for communication between components. Built with Bun and fully compatible with Node.js.
+Seamless communication between components, both local and remote, for remote you will need to deploy a MQTT Broker.
+- Local communication, inside self app, topic is just ```<event_name>``` or ```internal::<event_name>``` if want to be explicit
+- Remote communication, inter apps, through a MQTT Broker, topic is ```<user>:<password>@<mqtt_broker_ip>::<event_name>```
+this lib uses MQTT with an automatic convertion of json to MessagePack and vice versa for efficient serialization. 
+
+Built with Bun and fully compatible with Node.js.
 
 ## ✨ Features
 
@@ -35,20 +40,28 @@ pnpm add como-pubsub
 ```typescript
 import { emit, listen, unlisten } from 'como-pubsub';
 
-// Subscribe to a topic
-const subscriptionId = await listen('user-updates', (topic, payload) => {
-  console.log(`📨 Received update on ${topic}:`, payload);
-});
+// Subscribe to a internal topic
+const internalSubsId = await listen('user-updates', messageHandler);
+// Subscribe to a remote topic
+const remoteSubsId = await listen('user01:password@picolov.com:1883::user-updates', messageHandler);
 
-// Publish a message
-await emit('user-updates', { 
+// Publish a message to internal topic
+await emit('user-updates', payload);
+// Publish a message to internal topic
+await emit('user01:password@picolov.com:1883::user-updates', payload);
+
+// Unsubscribe both when done
+await unlisten('user-updates', internalSubsId);
+await unlisten('user-updates', remoteSubsId);
+
+const messageHandler = (topic, payload) => {
+  console.log(`📨 Received update on ${topic}:`, payload);
+};
+const payload = { 
   userId: 123,
   action: 'profile-updated',
   timestamp: new Date()
-});
-
-// Unsubscribe when done
-await unlisten('user-updates', subscriptionId);
+};
 ```
 
 ## 📚 API Reference
