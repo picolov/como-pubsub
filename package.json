@@ -14,7 +14,6 @@
   "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist",
     "test": "bun test",
-    "publish": "npm publish",
     "prepublishOnly": "bun run build"
   },
   "keywords": ["pubsub", "publish-subscribe", "messaging", "communication", "typescript"],
